@@ -3,11 +3,12 @@ const app = express();
 const cors = require("cors");
 const { dbConnection } = require("./config/dbConnection");
 require("dotenv").config();
-const { MONGODB_URI, PORT, FRONTEND_URL } = process.env;
+const { MONGODB_URI, PORT, FRONTEND_DEV_URL, FRONTEND_PRODUCTION_URL } =
+  process.env;
 const TodoRoute = require("./routes/TodoRoute");
 
 const corsOptions = {
-  origin: [FRONTEND_URL],
+  origin: [FRONTEND_DEV_URL, FRONTEND_PRODUCTION_URL],
   credentials: true,
 };
 
